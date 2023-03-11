@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "366001799910",
+    "firebase_url": "https://butuneup-default-rtdb.firebaseio.com",
+    "project_id": "butuneup",
+    "storage_bucket": "butuneup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366001799910:android:c730d6595489e982ee7127",
+        "android_client_info": {
+          "package_name": "com.example.butuneup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366001799910-u96rtihlo5kkkup8peja9jrcv4b2eq1p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.butuneup",
+            "certificate_hash": "ca63b0642408504867d2b1ad6fc0dfda869440ca"
+          }
+        },
+        {
+          "client_id": "366001799910-m21g62tpapdgfm52ngdrn50ptcrg2nc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCInKcB12RLQqniknYrJuOmKxbv0RMuFaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366001799910-elcr7c54ij1b2fmr8vr72mpbnqu10nih.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
