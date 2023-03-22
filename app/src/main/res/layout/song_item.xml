@@ -1,15 +1,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-    android:id="@+id/song_name_textview"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="20sp"
-        android:textStyle="bold"
-    android:textColor="@color/white"
-    android:padding="16dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/song_imageview"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_music" />
+
+        <TextView
+            android:id="@+id/song_name_textview"
+            android:layout_width="309dp"
+            android:layout_height="71dp"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_play_arrow"
+            android:background="@color/background"/>
+
+
+    </LinearLayout>
+    <View
+        android:id="@+id/divider_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:alpha="0.5"
+        android:layout_marginTop="8dp"/>
+
 
 </LinearLayout>

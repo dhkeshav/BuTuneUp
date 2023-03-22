@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="app_name">BuTuneUp</string>
     <string name="loading">Loading…</string>
@@ -36,15 +37,4 @@
     <string name="last_added">Last Added</string>
     <string name="my_top_tracks">My Top Tracks</string>
     <string name="shuffle">Shuffle</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="app_subtitle">App Substitue</string>
-    <string name="menu_item_1_title">Menu</string>
 </resources>

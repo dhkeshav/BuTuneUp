@@ -26,16 +26,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
 
-        googleSignInClient = GoogleSignIn.getClient(this , gso)
+        if (auth.currentUser != null) {
+            // user is already signed in
+            val intent : Intent = Intent(this , HomeActivity :: class.java)
+            intent.putExtra("email" , auth.currentUser?.email)
+            intent.putExtra("name" , auth.currentUser?.displayName)
+            startActivity(intent)
+            finish()
+        } else {
+            // user is not signed in, proceed with sign in process
+            val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
 
-        findViewById<Button>(R.id.gSignInButton).setOnClickListener {
-            signInGoogle()
+            googleSignInClient = GoogleSignIn.getClient(this , gso)
+
+            findViewById<Button>(R.id.gSignInButton).setOnClickListener {
+                signInGoogle()
+            }
         }
+
+
+
 
     }
 
