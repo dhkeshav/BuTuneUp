@@ -20,9 +20,12 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.media.AudioManager
 import android.media.MediaPlayer
+import android.net.Uri
 import android.view.*
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.core.content.ContextCompat.getSystemService
+import com.bumptech.glide.Glide
 import java.io.IOException
 import java.util.*
 
@@ -35,6 +38,14 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         scaleGestureDetector = ScaleGestureDetector(this, ScaleListener())
+
+        // Retrieve the user data from the intent extras
+        val email = intent.getStringExtra("email")
+        val name = intent.getStringExtra("name")
+        val photoUrl = intent.getStringExtra("photoUrl")
+
+        // Create an intent to start the ProfileActivity and pass the user data
+
         // Find the floating action buttons by their IDs
 //        val historyFab = findViewById<FloatingActionButton>(R.id.floatingActionButton3)
 //        val settingsFab = findViewById<FloatingActionButton>(R.id.floatingActionButton2)
@@ -85,21 +96,34 @@ class HomeActivity : AppCompatActivity() {
         }
 
         // Find the grid layout buttons by their IDs
-        val playlistButton = findViewById<Button>(R.id.Playlist_Btn)
+        val bennettLogo = findViewById<ImageButton>(R.id.bennett_logo)
+        bennettLogo.setOnClickListener {
+            val url = "https://www.bennett.edu.in/admission/"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
+        val artistButton = findViewById<Button>(R.id.ARTIST_Btn)
         val profileButton = findViewById<Button>(R.id.Profile_Btn)
         val uploadMusicButton = findViewById<Button>(R.id.Upload_Btn)
 
 
         // Set click listeners to the grid layout buttons
-        playlistButton.setOnClickListener {
+        artistButton.setOnClickListener {
             // Code to handle click on playlist button
-            // val intent = Intent(this, PlaylistActivity::class.java)
-            // startActivity(intent)
+             val intent = Intent(this, ArtistActivity::class.java)
+             startActivity(intent)
         }
         profileButton.setOnClickListener {
             // Code to handle click on profile button
-            // val intent = Intent(this, ProfileActivity::class.java)
-            // startActivity(intent)
+            val intent = Intent(this, ProfileActivity::class.java).apply {
+                putExtra("email", email)
+                putExtra("name", name)
+                putExtra("photoUrl", photoUrl)
+                Log.d("ProfileActivity", "Photo URL: $photoUrl")
+            }
+            startActivity(intent)
+
         }
         uploadMusicButton.setOnClickListener {
             // Code to handle click on upload music button

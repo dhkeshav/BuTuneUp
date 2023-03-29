@@ -75,11 +75,12 @@
         android:textColor="@android:color/white"
         android:textSize="16sp"/>
 
-    <ImageView
+    <ImageButton
         android:id="@+id/spotify_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/main_logo"
+        android:src="@drawable/img_3"
+        android:backgroundTint="@color/background"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"/>

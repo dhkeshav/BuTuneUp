@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
+                .requestProfile()
                 .build()
 
             googleSignInClient = GoogleSignIn.getClient(this , gso)
@@ -80,20 +81,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateUI(account: GoogleSignInAccount) {
-        val credential = GoogleAuthProvider.getCredential(account.idToken , null)
-        auth.signInWithCredential(credential).addOnCompleteListener{
-            if(it.isSuccessful){
-                val intent : Intent =Intent(this , HomeActivity :: class.java)
-                intent.putExtra("email" , account.email)
-                intent.putExtra("name" , account.displayName)
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+        auth.signInWithCredential(credential).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val intent: Intent = Intent(this, HomeActivity::class.java)
+                intent.putExtra("email", account.email)
+                intent.putExtra("name", account.displayName)
+                intent.putExtra("photoUrl", account.photoUrl)
+                // add this line to put the photo URL in the intent
                 startActivity(intent)
-
-
-            }
-            else{
-                Toast.makeText(this , it.exception.toString() , Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }
+
 
 }
