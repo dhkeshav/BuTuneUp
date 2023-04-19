@@ -7,8 +7,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -24,12 +26,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val imageView: ImageView = findViewById(R.id.imageView)
+        Glide.with(this).load(R.drawable.main_back).into(imageView)
 
         auth = FirebaseAuth.getInstance()
 
         if (auth.currentUser != null) {
             // user is already signed in
-            val intent : Intent = Intent(this , HomeActivity :: class.java)
+            val intent : Intent = Intent(this , NEWHOMEACTIVITY :: class.java)
             intent.putExtra("email" , auth.currentUser?.email)
             intent.putExtra("name" , auth.currentUser?.displayName)
             startActivity(intent)
@@ -84,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         auth.signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val intent: Intent = Intent(this, HomeActivity::class.java)
+                val intent: Intent = Intent(this, NEWHOMEACTIVITY::class.java)
                 intent.putExtra("email", account.email)
                 intent.putExtra("name", account.displayName)
                 intent.putExtra("photoUrl", account.photoUrl)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-    <color name="background">#121212</color>
+    <color name="background">#1E1E1E</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -78,7 +78,7 @@
 <color name="gray_603">#6d7f78</color>
 <color name="deep_purple_A700_bc">#bc4101f5</color>
 <color name="bluegray_600">#616a71</color>
-<color name="white_A700">#ffffff</color>
+<color name="white_A700">#FFFFFF</color>
 <color name="green_800">#14833b</color>
 <color name="bluegray_800_e5">#e5494e52</color>
 <color name="black_900">#000000</color>

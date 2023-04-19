@@ -18,6 +18,15 @@
         android:theme="@style/Theme.BuTuneUp"
         tools:targetApi="31">
         <activity
+            android:name=".LatestAddedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MostPlayedSongsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NEWHOMEACTIVITY"
+            android:exported="false" />
+        <activity
             android:name=".ArtistActivity"
             android:exported="false" />
         <activity

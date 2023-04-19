@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NEWHOMEACTIVITY"
+    android:background="@color/background">
+
+    <ImageButton
+        android:id="@+id/bennett_logo"
+        android:layout_width="404dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginBottom="600dp"
+        android:background="@color/background"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:padding="16dp"
+        android:text="Welcome to BU-TUNEUP"
+        android:textColor="@color/white_A700"
+        android:textFontWeight="@integer/material_motion_duration_long_2"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/most_played_btn"
+        android:layout_width="172dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_bg_curve"
+        android:scaleType="fitCenter"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favourites_btn"
+        app:srcCompat="@drawable/img_11" />
+
+    <ImageButton
+        android:id="@+id/upload_btn"
+        android:layout_width="172dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/button_bg_curve"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latest_added_btn"
+        app:srcCompat="@drawable/img_9" />
+
+    <ImageButton
+        android:id="@+id/latest_added_btn"
+        android:layout_width="172dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/button_bg_curve"
+
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/upload_btn"
+        app:layout_constraintEnd_toStartOf="@+id/favourites_btn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bennett_logo"
+        app:srcCompat="@drawable/img_10" />
+
+    <ImageButton
+        android:id="@+id/favourites_btn"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/button_bg_curve"
+        android:scaleType="centerCrop"
+
+        app:layout_constraintBottom_toTopOf="@+id/most_played_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bennett_logo" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="412dp"
+        android:layout_height="127dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="3dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload_btn"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

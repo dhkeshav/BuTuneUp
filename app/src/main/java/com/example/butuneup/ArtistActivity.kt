@@ -3,6 +3,8 @@ package com.example.butuneup
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.service.controls.ControlsProviderService.TAG
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class ArtistActivity : AppCompatActivity() {
     private lateinit var userList: MutableList<User>
@@ -27,21 +33,26 @@ class ArtistActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = userAdapter
 
-        // Add some dummy users for testing purposes
-        userList.add(User("Alice", R.drawable._avatar_shape))
-        userList.add(User("Bob", R.drawable._avatar_shape))
-        userList.add(User("Charlie", R.drawable._avatar_shape))
-
-        // Load following state for each user from shared preferences
-        val sharedPrefs = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
-        for (user in userList) {
-            user.isFollowing = sharedPrefs.getBoolean(user.name, false)
-        }
-
-        userAdapter.notifyDataSetChanged()
+        // Fetch all users from Firebase who signed in with Google and add them to the userList
+        val db = Firebase.firestore
+        val providerId = GoogleAuthProvider.PROVIDER_ID // Replace this with your provider ID if necessary
+        db.collection("users")
+            .whereEqualTo("signInProvider", providerId)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val user = document.toObject(User::class.java)
+                    userList.add(user)
+                }
+                userAdapter.notifyDataSetChanged()
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting users", exception)
+            }
     }
 
 }
+
 class UserAdapter(private val userList: List<User>) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     private val followedUserList: MutableList<User> = mutableListOf()
@@ -61,7 +72,7 @@ class UserAdapter(private val userList: List<User>) : RecyclerView.Adapter<UserA
         val currentUser = userList[position]
 
         // Set the profile picture and user name
-        holder.profilePicImageView.setImageResource(currentUser.profilePicResId)
+        holder.profilePicImageView.setImageResource(R.drawable._avatar_shape)
         holder.userNameTextView.text = currentUser.name
 
         // Set the follow button text and click listener

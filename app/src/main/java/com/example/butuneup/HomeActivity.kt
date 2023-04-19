@@ -29,7 +29,7 @@ import com.bumptech.glide.Glide
 import java.io.IOException
 import java.util.*
 
-private const val TAG = "HomeActivity"
+const val TAG = "HomeActivity"
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -96,52 +96,52 @@ class HomeActivity : AppCompatActivity() {
         }
 
         // Find the grid layout buttons by their IDs
-        val bennettLogo = findViewById<ImageButton>(R.id.bennett_logo)
-        bennettLogo.setOnClickListener {
-            val url = "https://www.bennett.edu.in/admission/"
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(url)
-            startActivity(intent)
-        }
-        val artistButton = findViewById<Button>(R.id.ARTIST_Btn)
-        val profileButton = findViewById<Button>(R.id.Profile_Btn)
-        val uploadMusicButton = findViewById<Button>(R.id.Upload_Btn)
+//        val bennettLogo = findViewById<ImageButton>(R.id.bennett_logo)
+//        bennettLogo.setOnClickListener {
+//            val url = "https://www.bennett.edu.in/admission/"
+//            val intent = Intent(Intent.ACTION_VIEW)
+//            intent.data = Uri.parse(url)
+//            startActivity(intent)
+//        }
+//        val artistButton = findViewById<Button>(R.id.ARTIST_Btn)
+//        val profileButton = findViewById<Button>(R.id.Profile_Btn)
+//        val uploadMusicButton = findViewById<Button>(R.id.Upload_Btn)
 
 
         // Set click listeners to the grid layout buttons
-        artistButton.setOnClickListener {
-            // Code to handle click on playlist button
-             val intent = Intent(this, ArtistActivity::class.java)
-             startActivity(intent)
-        }
-        profileButton.setOnClickListener {
-            // Code to handle click on profile button
-            val intent = Intent(this, ProfileActivity::class.java).apply {
-                putExtra("email", email)
-                putExtra("name", name)
-                putExtra("photoUrl", photoUrl)
-                Log.d("ProfileActivity", "Photo URL: $photoUrl")
-            }
-            startActivity(intent)
-
-        }
-        uploadMusicButton.setOnClickListener {
-            // Code to handle click on upload music button
-            val intent = Intent(this, UploadMusicActivity::class.java)
-            startActivity(intent)
-        }
+//        artistButton.setOnClickListener {
+//            // Code to handle click on playlist button
+//             val intent = Intent(this, ArtistActivity::class.java)
+//             startActivity(intent)
+//        }
+//        profileButton.setOnClickListener {
+//            // Code to handle click on profile button
+//            val intent = Intent(this, ProfileActivity::class.java).apply {
+//                putExtra("email", email)
+//                putExtra("name", name)
+//                putExtra("photoUrl", photoUrl)
+//                Log.d("ProfileActivity", "Photo URL: $photoUrl")
+//            }
+//            startActivity(intent)
+//
+//        }
+//        uploadMusicButton.setOnClickListener {
+//            // Code to handle click on upload music button
+//            val intent = Intent(this, UploadMusicActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
         // Get the current hour of the day
         val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
 
         // Set the greeting message based on the current time
-        val greetingTextView = findViewById<TextView>(R.id.greeting_textview)
-        when (hour) {
-            in 6..11 -> greetingTextView.text = "Good morning"
-            in 12..17 -> greetingTextView.text = "Good afternoon"
-            else -> greetingTextView.text = "Good evening"
-        }
+//        val greetingTextView = findViewById<TextView>(R.id.greeting_textview)
+//        when (hour) {
+//            in 6..11 -> greetingTextView.text = "Good morning"
+//            in 12..17 -> greetingTextView.text = "Good afternoon"
+//            else -> greetingTextView.text = "Good evening"
+//        }
         recyclerView = findViewById(R.id.latest_songs_recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView = findViewById(R.id.latest_songs_recyclerview)
